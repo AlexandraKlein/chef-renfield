@@ -4,7 +4,7 @@ NPM & Gulp
 
 ## Installation
 
-`$ git clone https://github.com/AlexandraKlein/gulp-start.git`
+`$ git clone https://github.com/AlexandraKlein/chef-renfield.git`
 
 `$ cd gm`
 
