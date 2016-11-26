@@ -2,6 +2,21 @@
    Page content styling
    =========================================== */
 
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 25px 0;
+  background-color: #ccc;
+  text-align: center;
+  z-index: 1;
+}
+
+.main {
+  margin-top: 68px;
+}
+
 section {
   background-repeat: no-repeat;
   background-size: cover;
@@ -9,8 +24,11 @@ section {
   width: 100%;
   float:left;
   height: 450px;
-  line-height: 450px;
-  padding:0 300px;
-  color:#fff;
+  color:#333;
   font-size:35px;
+
+  h2 {
+    background-color: rgba(255, 255, 255, .5);
+    text-align: center;
+  }
 }
