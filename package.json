@@ -29,7 +29,10 @@
     "run-sequence": "^1.1.5"
   },
   "dependencies": {
+    "browser-sync": "^2.14.3",
     "flickity": "^2.0.2",
-    "gulp-sass": "^2.3.2"
+    "gulp-cssnano": "^2.1.2",
+    "gulp-sass": "^2.3.2",
+    "requirejs": "^2.2.0"
   }
 }

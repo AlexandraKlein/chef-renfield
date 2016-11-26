@@ -1,30 +1,18 @@
 $(function() {
-    /* Countdown */
-    $("#counter").countdown('2016/08/24 10:00:00', function(event)  {
-        $(this).html(event.strftime(''
-            + '<span>%D</span> '
-            + '<span>%H</span> '
-            + '<span>%M</span> '
-            + '<span>%S</span>'));
+
+    var requirejs = require('requirejs');
+
+    requirejs.config({
+        //Pass the top-level main.js/index.js require
+        //function to requirejs so that node modules
+        //are loaded relative to the top-level JS file.
+        nodeRequire: require
     });
 
-    /* Cheerio Parallax */
-    $(window).on('scroll', function () {
-        window.requestAnimationFrame(function () {
-            var scrolled = $(window).scrollTop();
-            $('.cheerio').css({
-                'transform': 'translate3d(0,' + scrolled * -0.64 + 'px, 0)'
-            });
-            $('.cheerio:nth-of-type(2)').css({
-                'transform': 'translate3d(0,' + scrolled * -0.42 + 'px, 0)'
-            });
-            $('.cheerio:nth-of-type(3)').css({
-                'transform': 'translate3d(0,' + scrolled * -0.23 + 'px, 0)'
-            });
-            $('.cheerio:nth-of-type(4)').css({
-                'transform': 'translate3d(0,' + scrolled * -0.84 + 'px, 0)'
-            });
+    requirejs(['foo', 'bar'],
+        function   (foo,   bar) {
+            //foo and bar are loaded according to requirejs
+            //config, but if not found, then node's require
+            //is used to load the module.
         });
-
-    });
 });
