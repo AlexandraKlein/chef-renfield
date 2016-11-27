@@ -1,5 +1,8 @@
 $(function() {
 
+
+    //parallax
+
     var h = $(window).height(),
         $section = $('section');
 
@@ -7,7 +10,6 @@ $(function() {
 
         var bgImg = $(parallaxImg).attr('data-image');
         $(parallaxImg).attr('style', 'background-image:url(' + bgImg + ');');
-
     }
 
     function parallaxbg(position, parallaxImg) {
@@ -40,11 +42,22 @@ $(function() {
         });
     }
 
+    function headerBar() {
+
+        var $header = $('header');
+        if ($(window).scrollTop() > 100) {
+            $header.addClass('scrolled');
+        } else {
+            $header.removeClass('scrolled');
+        }
+    }
+
     init();
     initScroll();
 
     $(window).bind('scroll', function () {
         initScroll();
+        headerBar()
     });
 
 
