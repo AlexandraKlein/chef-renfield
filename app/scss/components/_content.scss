@@ -47,13 +47,20 @@ header {
     display: flex;
     justify-content: space-between;
 
+    @include mobile {
+      padding: 0 20px;
+    }
+
     h1 {
       margin: 5px 0 0;
     }
 
-
     ul {
       list-style-type: none;
+
+      @include mobile {
+        display: none;
+      }
 
       li {
         margin-right: 20px;
@@ -74,10 +81,6 @@ header {
   }
 }
 
-.main {
-
-}
-
 section {
   background-repeat: no-repeat;
   background-size: cover;
@@ -86,6 +89,10 @@ section {
 
   &:first-of-type {
     height: 50vw;
+
+    @include mobile {
+      height: 500px;
+    }
   }
 
   h1 {

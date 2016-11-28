@@ -2,9 +2,9 @@ $(function() {
 
 
     //parallax
-
     var h = $(window).height(),
-        $section = $('section');
+        $section = $('section'),
+        isMobile = $(window).width() < 768;
 
     function Createparallaxbg(parallaxImg) {
 
@@ -22,6 +22,16 @@ $(function() {
                 'background-position': 'center ' + ((positionTop - imgPosition) / 2 - (h/5)) + 'px'
             });
         }
+    }
+
+    function mobilebg() {
+        $section.each(function(idx) {
+            if ($(this).hasClass('parallax' + (idx + 1))) {
+                var bgIdx = $('.parallax' + (idx + 1)),
+                    bgImg = bgIdx.attr('data-image');
+                bgIdx.attr('style', 'background-image:url(' + bgImg + ');');
+            }
+        });
     }
 
     function initScroll() {
@@ -52,13 +62,19 @@ $(function() {
         }
     }
 
-    init();
-    initScroll();
-
-    $(window).bind('scroll', function () {
+    if (!isMobile) {
+        init();
         initScroll();
-        headerBar()
-    });
 
+        $(window).bind('scroll', function () {
+            initScroll();
+            headerBar();
+        });
+    } else {
+        mobilebg();
+        $(window).bind('scroll', function () {
+            headerBar();
+        });
+    }
 
 });
